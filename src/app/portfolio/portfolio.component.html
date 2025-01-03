@@ -1,0 +1,54 @@
+<section id="test" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="title text-center pb-5">
+        <h2 class="text-uppercase">portfolio component</h2>
+        <div class="icon mb-2 text-center">
+          <span class="left-line"></span>
+          <i class="fa-solid fa-star mx-4"></i>
+          <span class="right-line"></span>
+        </div>
+      </div>
+      @for (portfolio of portfolioList; track portfolio.id) {
+      <div class="col-md-4 mb-3">
+        <div class="card position-relative">
+          <img class="card-img-top w-100" [src]="portfolio.image" alt="Card image cap">
+          <div (click)="portfolioImage(portfolio.id)"
+            class="overlay position-absolute d-flex justify-content-center align-items-center text-white">
+            <div class="plus">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section id="slider" [class.d-none]="!isSliderVisible" (click)="closeSlider()">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 m-auto">
+        <div class="inner rounded overflow-hidden" (click)="$event.stopPropagation()">
+          <div class="position-relative">
+            <img [src]="currentImage" class="w-100" alt="">
+            <div
+              class="slider-overlay p-2 position-absolute top-0 start-0 bottom-0 end-0 h-100 d-flex justify-content-between align-items-center w-100">
+              <div (keydown.Escape)="closeSlider()" (click)="closeSlider()"
+                class="rounded-pill w-auto text-end position-absolute top-0 end-0 m-2">
+                <i class="close fa-solid fa-xmark fa-3x p-1 rounded"></i>
+              </div>
+              <div (keydown.ArrowLeft)="prevImage()" (click)="prevImage()" class="rounded-pill arrow-left">
+                <i class="fa-solid fa-arrow-alt-circle-left fa-3x"></i>
+              </div>
+              <div (keydown.ArrowRight)="nextImage()" (click)="nextImage()" class="rounded-pill arrow-right">
+                <i class="fa-solid fa-arrow-alt-circle-right fa-3x"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

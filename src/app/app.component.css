@@ -1,0 +1,13 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+router-outlet {
+  display: block;
+  padding-top: 100px;
+}
+@media (max-width: 768px) {
+  router-outlet {
+    padding-top: 90px;
+  }
+}

@@ -1,0 +1,22 @@
+<div class="row">
+  @defer (when deferStatus) {
+  @for ( common of recommendedList; track $index) {
+  <div class="col-md-3 mb-4" [class]="{
+            'd-none': !deferStatus,
+          }">
+    <div class="card product-card">
+      <div class="position-relative">
+        <img [src]="common.image" [alt]="common.title" class="card-img-top product-image object-fit-contain">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{common.title.split(" ",3).join(" ")}}</h5>
+        <p class="card-text">{{common.description.split(" ",18).join(" ")}}</p>
+        <p class="product-price">{{common.price}}$</p>
+        <p class="text-muted">Quantity: {{common.count}}</p>
+        <a class="btn btn-primary w-100">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+  }
+  }
+</div>
