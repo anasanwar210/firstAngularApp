@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:ssr": "ng build --configuration production && ng run app1:server:production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:app1": "node dist/app1/server/server.mjs"
